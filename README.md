@@ -1,5 +1,5 @@
-# Random Walk
-This is a visualization of a random walk written in Javascript using the [p5.js library](https://p5js.org/). Read more about random walks [here](https://en.wikipedia.org/wiki/Random_walk). Hopefully more colorful updates to come.
+# Random Walk (Now with color!)
+This is a visualization of a random walk written in Javascript using the [p5.js library](https://p5js.org/). Read more about random walks [here](https://en.wikipedia.org/wiki/Random_walk).
 
 # How to run
 Run your local server within the repository folder. On your browser, go to ```http://localhost:[your-port-num]```. 

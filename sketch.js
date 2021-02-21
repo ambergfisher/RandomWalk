@@ -16,18 +16,15 @@ function setup() {
 function draw() {
   gridButton.draw()
   resetButton.draw()
-  strokeWeight(1)
-  stroke(255)
-  fill(255)
   setCoordinates(density)
+  setColor()
   circle(loc.x, loc.y, gridMode ? 10 : 2)
   if (!gridMode) {
-    setCoordinates(density)
-    circle(loc.x, loc.y, gridMode ? 10 : 2)
-    setCoordinates(density)
-    circle(loc.x, loc.y, gridMode ? 10 : 2)
-    setCoordinates(density)
-    circle(loc.x, loc.y, gridMode ? 10 : 2)
+    for (let i = 0; i < 15; i++) {
+      setCoordinates(density)
+      setColor()
+      circle(loc.x, loc.y, gridMode ? 10 : 2)
+    }
   }
 }
 
@@ -59,6 +56,45 @@ function setButtonFeatures() {
                                 gridMode ? drawGrid(density) : null
                                 loc = createVector(725, 375)
                               }
+}
+
+function setColor() {
+  strokeWeight(1)
+  let w = window.innerWidth / 6
+
+  if (loc.x <= w) {
+    red = 255
+    green = (255 / w) * loc.x
+    blue = 0
+  }
+  else if (loc.x <= 2 * w) {
+    red = -(255 / w) * loc.x + 510
+    green = 255
+    blue = 0
+  }
+  else if (loc.x <= 3 * w) {
+    red = 0
+    green = 255
+    blue = (255 / w) * loc.x - 510
+  }
+  else if (loc.x <= 4 * w) {
+    red = 0
+    green = -(255 / w) * loc.x + 1020
+    blue = 255
+  }
+  else if (loc.x <= 5 * w) {
+    red = (255 / w) * loc.x - 1020
+    green = 0
+    blue = 255
+  }
+  else {
+    red = 255
+    green = 0
+    blue = -(255 / w) * loc.x + 1530
+  }
+
+  stroke(color(red, green, blue))
+  fill(color(red, green, blue))
 }
 
 function setCoordinates(density) {
